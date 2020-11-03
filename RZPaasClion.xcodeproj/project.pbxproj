@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		86332EEF255185AB00662347 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 86332EEE255185AB00662347 /* main.m */; };
+		86332EF8255185B500662347 /* RZPaas.mm in Sources */ = {isa = PBXBuildFile; fileRef = 86332EF7255185B500662347 /* RZPaas.mm */; };
+		86332F012551863500662347 /* RZPaasCxx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86332F002551863500662347 /* RZPaasCxx.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,10 @@
 /* Begin PBXFileReference section */
 		86332EEB255185AB00662347 /* RZPaasClion */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = RZPaasClion; sourceTree = BUILT_PRODUCTS_DIR; };
 		86332EEE255185AB00662347 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		86332EF6255185B500662347 /* RZPaas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZPaas.h; sourceTree = "<group>"; };
+		86332EF7255185B500662347 /* RZPaas.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = RZPaas.mm; sourceTree = "<group>"; };
+		86332EFF2551862B00662347 /* RZPaasCxx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZPaasCxx.h; sourceTree = "<group>"; };
+		86332F002551863500662347 /* RZPaasCxx.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RZPaasCxx.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,10 @@
 			isa = PBXGroup;
 			children = (
 				86332EEE255185AB00662347 /* main.m */,
+				86332EFF2551862B00662347 /* RZPaasCxx.h */,
+				86332F002551863500662347 /* RZPaasCxx.cpp */,
+				86332EF6255185B500662347 /* RZPaas.h */,
+				86332EF7255185B500662347 /* RZPaas.mm */,
 			);
 			path = RZPaasClion;
 			sourceTree = "<group>";
@@ -118,6 +128,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86332F012551863500662347 /* RZPaasCxx.cpp in Sources */,
+				86332EF8255185B500662347 /* RZPaas.mm in Sources */,
 				86332EEF255185AB00662347 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
