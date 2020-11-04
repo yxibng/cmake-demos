@@ -1,7 +1,9 @@
 cmake_minimum_required(VERSION 3.10)
 set(CMAKE_CXX_STANDARD 11)
 
-project(RZPaas VERSION 1.0)
+project(RZPaas OBJC CXX)
+
+
 
 message("${PROJECT_SOURCE_DIR}")
 # target_include_directories(RZPaas PUBLIC "${PROJECT_SOURCE_DIR}")
@@ -20,7 +22,11 @@ add_library(dynamicFramework SHARED
 )
 target_link_libraries(dynamicFramework ${TARGET_LINK_LIBRARIES})
 
+set(CODESIGN_EMBEDDED_FRAMEWORKS 0)
+
 set_target_properties(dynamicFramework PROPERTIES 
 FRAMEWORK TRUE
 PUBLIC_HEADER "${public_headers}"
 )
+
+
