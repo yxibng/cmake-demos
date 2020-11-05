@@ -4,6 +4,7 @@
 
 1. 编写CMakeLists.txt
 2. 执行cmake
+3. 生成iOS动态库Framework
   ```
   #/bin/sh
   mkdir -p build
