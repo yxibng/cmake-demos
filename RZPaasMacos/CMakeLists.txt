@@ -1,14 +1,13 @@
 cmake_minimum_required(VERSION 3.10)
 set(CMAKE_CXX_STANDARD 11)
 
-project(RZPaas OBJC CXX)
+project(RZPaas)
 
 
 message("${PROJECT_SOURCE_DIR}")
 # target_include_directories(RZPaas PUBLIC "${PROJECT_SOURCE_DIR}")
 
 file(GLOB_RECURSE sourceFiles 
-"${PROJECT_SOURCE_DIR}/*.h"
 "${PROJECT_SOURCE_DIR}/*.m"
 "${PROJECT_SOURCE_DIR}/*.mm"
 "${PROJECT_SOURCE_DIR}/*.cpp"
@@ -22,6 +21,9 @@ message("=============${CMAKE_OSX_SYSROOT_INT}")
 
 set(CMAKE_OSX_SYSROOT ${CMAKE_OSX_SYSROOT_INT})
 
+set(CMAKE_OSX_ARCHITECTURES x86_64)
+message("=============${CMAKE_OSX_ARCHITECTURES}")
+
 file(GLOB_RECURSE public_headers "${PROJECT_SOURCE_DIR}/*.h")
 message(${sourceFiles})
 
@@ -30,16 +32,24 @@ set(frameworks
 "-framework AVFoundation"
 "-framework AppKit"
 "-framework CoreVideo"
+"-framework CoreMedia"
 )
 
 
 add_library(dynamicFramework SHARED
-"${sourceFiles}"
+${sourceFiles}
+${public_headers}
 )
 target_link_libraries(dynamicFramework ${frameworks})
+
+set_target_properties(dynamicFramework PROPERTIES CXX_VISIBILITY_PRESET default)
+
 set_target_properties(dynamicFramework PROPERTIES 
 FRAMEWORK TRUE
 PUBLIC_HEADER "${public_headers}"
 )
+set_property (TARGET dynamicFramework APPEND_STRING PROPERTY 
+              COMPILE_FLAGS "-fobjc-arc")
 
 
+     

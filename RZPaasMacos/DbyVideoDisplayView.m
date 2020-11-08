@@ -21,6 +21,14 @@
 }
 
 
+#if TARGET_OS_IOS
+
++ (Class)layerClass
+{
+    return [AVSampleBufferDisplayLayer class];
+}
+
+#elif TARGET_OS_OSX
 
 - (instancetype)initWithFrame:(NSRect)frameRect
 {
@@ -43,6 +51,7 @@
     self.wantsLayer = true;
     self.layer = [[AVSampleBufferDisplayLayer alloc] init];
 }
+#endif
 
 - (AVSampleBufferDisplayLayer *)displayLayer
 {
@@ -82,7 +91,12 @@
 
     [view addSubview:self];
     self.frame = view.bounds;
+
+#if TARGET_OS_IOS
+    self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+#elif TARGET_OS_OSX
     self.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+#endif
 }
 
 
