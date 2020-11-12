@@ -35,7 +35,7 @@ set(frameworks
 "-framework CoreMedia"
 )
 
-
+set(CMAKE_OSX_DEPLOYMENT_TARGET "10.12")
 add_library(dynamicFramework SHARED
 ${sourceFiles}
 ${public_headers}
