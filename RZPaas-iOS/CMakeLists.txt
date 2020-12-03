@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 set(CMAKE_CXX_STANDARD 11)
 
-project(RZPaas OBJC CXX)
+project(RZPaas)
 
 
 
@@ -20,7 +20,9 @@ set(TARGET_LINK_LIBRARIES  "-framework Foundation")
 add_library(dynamicFramework SHARED
 "${sourceFiles}"
 )
-target_link_libraries(dynamicFramework ${TARGET_LINK_LIBRARIES})
+# target_link_libraries(dynamicFramework ${TARGET_LINK_LIBRARIES})
+
+SET(CMAKE_XCODE_ATTRIBUTE_SKIP_INSTALL "YES")
 
 set(CODESIGN_EMBEDDED_FRAMEWORKS 0)
 
