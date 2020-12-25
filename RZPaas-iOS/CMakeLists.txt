@@ -4,6 +4,9 @@ set(CMAKE_CXX_STANDARD 11)
 project(RZPaas)
 
 
+macro (set_xcode_property TARGET XCODE_PROPERTY XCODE_VALUE)
+    set_property (TARGET ${TARGET} PROPERTY XCODE_ATTRIBUTE_${XCODE_PROPERTY} ${XCODE_VALUE})
+endmacro (set_xcode_property)
 
 message("${PROJECT_SOURCE_DIR}")
 # target_include_directories(RZPaas PUBLIC "${PROJECT_SOURCE_DIR}")
@@ -23,6 +26,13 @@ add_library(dynamicFramework SHARED
 # target_link_libraries(dynamicFramework ${TARGET_LINK_LIBRARIES})
 
 SET(CMAKE_XCODE_ATTRIBUTE_SKIP_INSTALL "YES")
+
+# 参考 https://github.com/grimfang4/sdl-gpu/blob/master/scripts/ios-cmake/toolchain/XcodeDefaults.cmake
+set_xcode_property(dynamicFramework GCC_GENERATE_DEBUGGING_SYMBOLS[variant=Debug] YES)
+set_xcode_property(dynamicFramework GCC_GENERATE_DEBUGGING_SYMBOLS[variant=MinSizeRel] YES)
+set_xcode_property(dynamicFramework GCC_GENERATE_DEBUGGING_SYMBOLS[variant=RelWithDebInfo] YES)
+set_xcode_property(dynamicFramework GCC_GENERATE_DEBUGGING_SYMBOLS[variant=Release] YES)
+
 
 set(CODESIGN_EMBEDDED_FRAMEWORKS 0)
 
