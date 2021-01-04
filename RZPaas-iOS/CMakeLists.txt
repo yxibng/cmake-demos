@@ -13,15 +13,16 @@ message("${PROJECT_SOURCE_DIR}")
 
 file(GLOB_RECURSE sourceFiles "${PROJECT_SOURCE_DIR}/*.mm" "${PROJECT_SOURCE_DIR}/*.cpp" "${PROJECT_SOURCE_DIR}/*.h")
 
-file(GLOB_RECURSE public_headers "${PROJECT_SOURCE_DIR}/*.h")
-message(${sourceFiles})
+file(GLOB_RECURSE public_headers "${PROJECT_SOURCE_DIR}/RZPaas.h")
+
+file(GLOB_RECURSE all_headers "${PROJECT_SOURCE_DIR}/*.h")
 
 
 set(TARGET_LINK_LIBRARIES  "-framework Foundation")
 
-
 add_library(dynamicFramework SHARED
-"${sourceFiles}"
+${sourceFiles}
+${all_headers}
 )
 # target_link_libraries(dynamicFramework ${TARGET_LINK_LIBRARIES})
 
@@ -39,6 +40,11 @@ set(CODESIGN_EMBEDDED_FRAMEWORKS 0)
 set_target_properties(dynamicFramework PROPERTIES 
 FRAMEWORK TRUE
 PUBLIC_HEADER "${public_headers}"
+FRAMEWORK_VERSION A
+XCODE_ATTRIBUTE_PRODUCT_BUNDLE_IDENTIFIER "com.sdk.ios"
+XCODE_ATTRIBUTE_MARKETING_VERSION 1.0.0
+XCODE_ATTRIBUTE_CURRENT_PROJECT_VERSION 1
+MACOSX_FRAMEWORK_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist
 )
 
 
