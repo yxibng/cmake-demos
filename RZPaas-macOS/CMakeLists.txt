@@ -52,6 +52,10 @@ set_target_properties(dynamicFramework PROPERTIES CXX_VISIBILITY_PRESET default)
 set_target_properties(dynamicFramework PROPERTIES 
 FRAMEWORK TRUE
 PUBLIC_HEADER "${public_headers}"
+FRAMEWORK_VERSION A
+XCODE_ATTRIBUTE_PRODUCT_BUNDLE_IDENTIFIER "com.sdk.macos"
+XCODE_ATTRIBUTE_MARKETING_VERSION 1.0.0
+XCODE_ATTRIBUTE_CURRENT_PROJECT_VERSION 1
 )
 set_property (TARGET dynamicFramework APPEND_STRING PROPERTY 
               COMPILE_FLAGS "-fobjc-arc")
