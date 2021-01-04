@@ -24,7 +24,12 @@ set(CMAKE_OSX_SYSROOT ${CMAKE_OSX_SYSROOT_INT})
 set(CMAKE_OSX_ARCHITECTURES x86_64)
 message("=============${CMAKE_OSX_ARCHITECTURES}")
 
-file(GLOB_RECURSE public_headers "${PROJECT_SOURCE_DIR}/*.h")
+
+file(GLOB_RECURSE public_headers "${PROJECT_SOURCE_DIR}/RZPaas.h")
+
+file(GLOB_RECURSE all_headers "${PROJECT_SOURCE_DIR}/*.h")
+
+
 message(${sourceFiles})
 
 set(frameworks  
@@ -38,7 +43,7 @@ set(frameworks
 set(CMAKE_OSX_DEPLOYMENT_TARGET "10.12")
 add_library(dynamicFramework SHARED
 ${sourceFiles}
-${public_headers}
+${all_headers}
 )
 target_link_libraries(dynamicFramework ${frameworks})
 
