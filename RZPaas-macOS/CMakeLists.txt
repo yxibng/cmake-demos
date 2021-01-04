@@ -49,6 +49,10 @@ target_link_libraries(dynamicFramework ${frameworks})
 
 set_target_properties(dynamicFramework PROPERTIES CXX_VISIBILITY_PRESET default)
 
+
+set(CMAKE_XCODE_ATTRIBUTE_CODE_SIGNING_REQUIRED "NO")
+set(CMAKE_XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY "")
+
 set_target_properties(dynamicFramework PROPERTIES 
 FRAMEWORK TRUE
 PUBLIC_HEADER "${public_headers}"
@@ -56,6 +60,7 @@ FRAMEWORK_VERSION A
 XCODE_ATTRIBUTE_PRODUCT_BUNDLE_IDENTIFIER "com.sdk.macos"
 XCODE_ATTRIBUTE_MARKETING_VERSION 1.0.0
 XCODE_ATTRIBUTE_CURRENT_PROJECT_VERSION 1
+MACOSX_FRAMEWORK_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist
 )
 set_property (TARGET dynamicFramework APPEND_STRING PROPERTY 
               COMPILE_FLAGS "-fobjc-arc")
