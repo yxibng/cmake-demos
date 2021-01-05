@@ -1,7 +1,6 @@
 framework module dynamicFramework {
-  umbrella header "RZPaas.h"
-
+  header "RZPaas.h"
+  
   export *
-  module * { export * }
 }
 
