@@ -1,0 +1,6 @@
+framework module RZPaas {
+  umbrella header "RZPaas.h"
+
+  export *
+  module * { export * }
+}
